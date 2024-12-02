@@ -6,13 +6,13 @@
 /*   By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:40:51 by rhvidste          #+#    #+#             */
-/*   Updated: 2024/11/29 16:55:23 by rhvidste         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:55:30 by rhvidste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd);
+char		*get_next_line(int fd);
 static char	*fill_line_buffer(int fd, char *stash, char *buffer);
 static char	*set_line(char *line_buffer);
 
@@ -21,7 +21,7 @@ char	*get_next_line(int fd)
 	char		*buffer;
 	char		*line;
 	static char	*stash;
-	
+
 	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
@@ -64,7 +64,6 @@ static char	*set_line(char *line_buffer)
 
 static char	*fill_line_buffer(int fd, char *stash, char *buffer)
 {
-
 	ssize_t	byte_read;
 	char	*tmp;
 
