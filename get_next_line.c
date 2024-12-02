@@ -52,14 +52,12 @@ static char	*set_line(char *line_buffer)
 		i++;
 	if (line_buffer[i] == 0 || line_buffer[1] == 0)
 		return (NULL);
-	// copies everything after \n to the stash.
 	stash = ft_substr(line_buffer, i + 1, ft_strlen(line_buffer) - i);
 	if (*stash == 0)
 	{
 		free(stash);
 		stash = NULL;
 	}
-	// caps newline with null terminator.
 	line_buffer[i + 1] = 0;
 	return (stash);
 }
