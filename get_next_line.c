@@ -6,7 +6,7 @@
 /*   By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:40:51 by rhvidste          #+#    #+#             */
-/*   Updated: 2024/11/25 10:14:59 by rhvidste         ###   ########.fr       */
+/*   Updated: 2024/11/29 16:55:23 by rhvidste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*get_next_line(int fd)
 	static char	*stash;
 	
 	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
 		free(stash);
 		free(buffer);
@@ -52,12 +52,14 @@ static char	*set_line(char *line_buffer)
 		i++;
 	if (line_buffer[i] == 0 || line_buffer[1] == 0)
 		return (NULL);
+	// copies everything after \n to the stash.
 	stash = ft_substr(line_buffer, i + 1, ft_strlen(line_buffer) - i);
 	if (*stash == 0)
 	{
 		free(stash);
 		stash = NULL;
 	}
+	// caps newline with null terminator.
 	line_buffer[i + 1] = 0;
 	return (stash);
 }
