@@ -6,7 +6,7 @@
 /*   By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 10:04:41 by rhvidste          #+#    #+#             */
-/*   Updated: 2024/12/02 16:52:06 by rhvidste         ###   ########.fr       */
+/*   Updated: 2024/12/02 17:10:43 by rhvidste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,9 @@ int		main()
 	printf("Reading from standrard input.\n");
 	printf("---------------------------------------\n");
 	fd = 0;
-	line = get_next_line(fd);
-	printf("%s\n", line);
-	free(line);
+	//line = get_next_line(fd);
+	//printf("%s\n", line);
+	//free(line);
 	while (line)
 	{
 		line = get_next_line(fd);
