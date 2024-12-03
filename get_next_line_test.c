@@ -6,7 +6,7 @@
 /*   By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 10:04:41 by rhvidste          #+#    #+#             */
-/*   Updated: 2024/12/02 17:11:25 by rhvidste         ###   ########.fr       */
+/*   Updated: 2024/12/03 10:29:43 by rhvidste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		main()
 {
 	char	*line;
 	int		fd;
-	/*char	buf[256];
+	char	buf[256];
 	int		chars_read;
 
 	fd = open("tests/test01.txt", O_RDONLY);
@@ -24,7 +24,7 @@ int		main()
 	{
 		buf[chars_read] = '\0';
 		printf("buf: %s\n", buf);
-	}*/
+	}
 
 	
 	printf("Test file.\n");
@@ -100,9 +100,9 @@ int		main()
 	printf("Reading from standrard input.\n");
 	printf("---------------------------------------\n");
 	fd = 0;
-	//line = get_next_line(fd);
-	//printf("%s\n", line);
-	//free(line);
+	line = get_next_line(fd);
+	printf("%s\n", line);
+	free(line);
 	while (line)
 	{
 		line = get_next_line(fd);
@@ -111,6 +111,10 @@ int		main()
 	}
 	line = get_next_line(fd);
 	printf("\n\n");
+	//if (line != NULL)
+		//free(line);
 	close(fd);
 	free(line);
+
+	//use ctrl-d to first Null and then terminate the program.
 }
