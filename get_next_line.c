@@ -6,7 +6,7 @@
 /*   By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:40:51 by rhvidste          #+#    #+#             */
-/*   Updated: 2024/12/03 16:50:02 by rhvidste         ###   ########.fr       */
+/*   Updated: 2024/12/03 16:59:59 by rhvidste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ static char *flush_stash(char *stash, char *buffer)
 {
 	char	*tmp;
 	if (!stash)
-	stash = ft_strdup("");
+		stash = ft_strdup("");
 	tmp = stash;
 	stash = ft_strjoin(tmp, buffer);
 	free(tmp);
