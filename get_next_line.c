@@ -6,7 +6,7 @@
 /*   By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:40:51 by rhvidste          #+#    #+#             */
-/*   Updated: 2024/12/02 17:11:27 by rhvidste         ###   ########.fr       */
+/*   Updated: 2024/12/03 16:50:02 by rhvidste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 char	*get_next_line(int fd);
 static char	*fill_line_buffer(int fd, char *stash, char *buffer);
 static char	*set_line(char *line_buffer);
+static char *flush_stash(char *stash, char *buffer);
 
 char	*get_next_line(int fd)
 {
@@ -68,7 +69,6 @@ static char	*fill_line_buffer(int fd, char *stash, char *buffer)
 {
 
 	ssize_t	byte_read;
-	char	*tmp;
 
 	byte_read = 1;
 	while (byte_read > 0)
@@ -84,14 +84,21 @@ static char	*fill_line_buffer(int fd, char *stash, char *buffer)
 			break;
 		}
 		buffer[byte_read] = 0;
-		if (!stash)
-			stash = ft_strdup("");
-		tmp = stash;
-		stash = ft_strjoin(tmp, buffer);
-		free(tmp);
-		tmp = NULL;
+		stash = flush_stash(stash, buffer);
 		if (ft_strchr(buffer, '\n'))
 			break;
 	}
+	return (stash);
+}
+
+static char *flush_stash(char *stash, char *buffer)
+{
+	char	*tmp;
+	if (!stash)
+	stash = ft_strdup("");
+	tmp = stash;
+	stash = ft_strjoin(tmp, buffer);
+	free(tmp);
+	tmp = NULL;
 	return (stash);
 }
