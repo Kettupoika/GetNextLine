@@ -6,7 +6,7 @@
 /*   By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:40:51 by rhvidste          #+#    #+#             */
-/*   Updated: 2024/12/03 14:30:30 by rhvidste         ###   ########.fr       */
+/*   Updated: 2024/12/03 16:43:19 by rhvidste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ static char	*fill_line_buffer(int fd, char *stash, char *buffer)
 			break ;
 		}
 		buffer[byte_read] = 0;
+		stash = flush_stash(stash, buffer, tmp);
 		if (!stash)
 			stash = ft_strdup("");
 		tmp = stash;
