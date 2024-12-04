@@ -6,7 +6,7 @@
 /*   By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 10:04:41 by rhvidste          #+#    #+#             */
-/*   Updated: 2024/12/03 10:29:43 by rhvidste         ###   ########.fr       */
+/*   Updated: 2024/12/04 10:25:44 by rhvidste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		main()
 	int		chars_read;
 
 	fd = open("tests/test01.txt", O_RDONLY);
-	while ((chars_read = read(fd, buf, 5)))
+	while ((chars_read = read(fd, buf, BUFFER_SIZE)))
 	{
 		buf[chars_read] = '\0';
 		printf("buf: %s\n", buf);
