@@ -6,7 +6,7 @@
 /*   By: rhvidste <rhvidste@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:44:33 by rhvidste          #+#    #+#             */
-/*   Updated: 2024/11/25 11:33:43 by rhvidste         ###   ########.fr       */
+/*   Updated: 2024/12/04 10:23:35 by rhvidste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <unistd.h>
 # include <fcntl.h>
 
-//# ifndef BUFFER_SIZE
-//# define BUFFER_SIZE 5
-//#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
